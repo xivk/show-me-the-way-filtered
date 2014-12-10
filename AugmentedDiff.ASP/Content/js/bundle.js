@@ -1,3 +1,5 @@
+var tagsString = "";
+
 (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { var a = typeof require == "function" && require; if (!u && a) return a(o, !0); if (i) return i(o, !0); var f = new Error("Cannot find module '" + o + "'"); throw f.code = "MODULE_NOT_FOUND", f } var l = n[o] = { exports: {} }; t[o][0].call(l.exports, function (e) { var n = t[o][1][e]; return s(n ? n : e) }, l, l.exports, e, t, n, r) } return n[o].exports } var i = typeof require == "function" && require; for (var o = 0; o < r.length; o++) s(r[o]); return s })({
     1: [function (require, module, exports) {
         var osmStream = require('osm-stream'),
@@ -7,7 +9,7 @@
 
         var bboxString = ["-90.0", "-180.0", "90.0", "180.0"];
         if (location.hash) {
-            bboxString = location.hash.replace('#', '').split(',');
+            tagsString = location.hash.replace('#', '');
         }
 
         var ignore = ['bot-mode'];
@@ -1632,7 +1634,7 @@
 
             function changeUrl(id, bbox) {
                 return baseUrl + changePath + qs.stringify({
-                    id: id, tags: 'hotosm', lookBack: '20'
+                    id: id, tags: tagsString, lookBack: '20'
                 });
             }
 
