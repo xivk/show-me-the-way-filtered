@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="relation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="bounds" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="member" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="nd" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string" />
+            <xs:attribute name="ref" type="xs:string" />
+            <xs:attribute name="role" type="xs:string" />
+            <xs:attribute name="lat" type="xs:string" />
+            <xs:attribute name="lon" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="tag" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" />
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="timestamp" type="xs:string" />
+      <xs:attribute name="changeset" type="xs:string" />
+      <xs:attribute name="uid" type="xs:string" />
+      <xs:attribute name="user" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bounds">
+    <xs:complexType>
+      <xs:attribute name="minlat" type="xs:string" />
+      <xs:attribute name="minlon" type="xs:string" />
+      <xs:attribute name="maxlat" type="xs:string" />
+      <xs:attribute name="maxlon" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nd">
+    <xs:complexType>
+      <xs:attribute name="lat" type="xs:string" />
+      <xs:attribute name="lon" type="xs:string" />
+      <xs:attribute name="ref" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tag">
+    <xs:complexType>
+      <xs:attribute name="k" type="xs:string" />
+      <xs:attribute name="v" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="way">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="bounds" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="nd" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element ref="tag" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" />
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="timestamp" type="xs:string" />
+      <xs:attribute name="changeset" type="xs:string" />
+      <xs:attribute name="uid" type="xs:string" />
+      <xs:attribute name="user" type="xs:string" />
+      <xs:attribute name="visible" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="node">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tag" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string" />
+      <xs:attribute name="lat" type="xs:string" />
+      <xs:attribute name="lon" type="xs:string" />
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="timestamp" type="xs:string" />
+      <xs:attribute name="changeset" type="xs:string" />
+      <xs:attribute name="uid" type="xs:string" />
+      <xs:attribute name="user" type="xs:string" />
+      <xs:attribute name="visible" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="osm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="note" type="xs:string" minOccurs="0" msdata:Ordinal="0" />
+        <xs:element name="meta" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="osm_base" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="action" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="relation" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element ref="way" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element ref="node" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="old" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="relation" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="way" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="node" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="new" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="relation" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="way" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element ref="node" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="generator" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="relation" />
+        <xs:element ref="bounds" />
+        <xs:element ref="nd" />
+        <xs:element ref="tag" />
+        <xs:element ref="way" />
+        <xs:element ref="node" />
+        <xs:element ref="osm" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
